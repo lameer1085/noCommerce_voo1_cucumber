@@ -1,0 +1,107 @@
+Cucumber 
+=========
+TDD: (Test Driven Development framework)
+=====
+	we have test case already, then we write the scripts based on that testcases. this is called 
+TDD framework.
+	We focuse on functional test cases. Every individual functionality of the application.
+	We use TestNG for TDD
+
+BDD: (Behavior Driven Development framework)
+====
+	We focuse on Acceptence Test 
+	It is used for understandable by technical and non-technical people.
+	It is brdige between technical and non tecnical people
+	We use Cucumber or Specflow tools to achieve BDD framework 
+	
+Intelliji  cucmber java plugin only for Intelliji
+----------------------------------------------------
+ Select project---> File ---> Settings----> Plugins --> Search for "Cucumber or Java"	
+
+We need add Junit and Hamcrest Library in intelliji
+  project structure--->modules----> + icon ---> library--->java--->intelliji installed location(programe files---> jetbrains-->intelliji idea community edition-->lib--->select(junit.jar files)--->ok)--->same for hamcrest (+ icon ---> library--->java--->intelliji installed location(programe files---> jetbrains-->intelliji idea community edition-->lib--->select(junit.jar files)--->ok))
+
+Eclipse additional installations:
+==================================
+We need to add cucumber plugins
+	HelpMenu--> marketplace--->search for(Cucumber)--->go--->add (Natural and cucmber eclipse plugin)
+	
+CUCUMBER STRUCTURE::::::
+========================
+
+Feature Files;
+--------------
+	Gerkins Keywords---- It is launguage like understandable sentence
+
+	Every feature contains multiple scenorio
+		Like,   Scenario 1
+				Keyword 1
+				Keyword 2
+				Keyword 3
+			Scenario 2
+				Keyword 1
+				Keyword 2
+				Keyword 3
+			Scenario 3
+				Keyword 1
+				Keyword 2
+				Keyword 3
+
+
+		.feature extension
+
+STEP DEFENITION file:(Java Class)
+----------------
+	Every step in scenario has implemented in step defenition file
+
+TEST RUNNER CLASS:(JUNIT CLASS)
+-------------------------------
+	Execute start here, It runs feature file to automate the stepdefenition 
+
+
+
+FetureFile keywords:
+----------------------
+#Author: your.email@your.domain.com
+#Keywords Summary :
+#Feature: List of scenarios.
+#Scenario: Business rule through list of steps with arguments.
+#Given: Some precondition step
+#When: Some key actions
+#Then: To observe outcomes or validation
+#And,But: To enumerate more Given,When,Then steps
+#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
+#Examples: Container for s table
+#Background: List of steps run before each of the scenarios
+#""" (Doc Strings)
+#| (Data Tables)
+#@ (Tags/Labels):To group Scenarios
+#<> (placeholder)
+#""
+## (Comments)
+
+EXAMPLE:
+-------
+@tag
+Feature: OrangeHRM login
+
+  @tag1
+  Scenario: Logo presence on orengeHRM home page
+    Given I want to write a step with precondition
+    And some other precondition
+    When I complete action
+    And some other action
+    And yet another action
+    Then I validate the outcomes
+    And check more outcomes
+
+  @tag2
+  Scenario Outline: Title of your scenario outline
+    Given I want to write a step with <name>
+    When I check for the <value> in step
+    Then I verify the <status> in step
+
+    Examples: 
+      | name  | value | status  |
+      | name1 |     5 | success |
+      | name2 |     7 | Fail    |
